@@ -20,7 +20,7 @@ const myGraphQLSchema = makeExecutableSchema({ typeDefs, resolvers })
 const PORT = 4000
 const app = express()
 
-// app.use(cors())
+app.use(cors()) // comment this out to provoke CORS error
 app.use('/graphql', bodyParser.json(), graphqlExpress({ schema: myGraphQLSchema }))
 app.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' })) 
 
